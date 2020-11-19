@@ -60,7 +60,7 @@ const prepareProxy = () => {
     }
 
     return [{
-        context: ['/graphql', '/static', '/media', '/admin', '/pub'],
+        context: ['/graphql', '/default/graphql', '/static', '/media', '/admin', '/pub'],
         target: proxy,
         ws: true,
         changeOrigin: true,
