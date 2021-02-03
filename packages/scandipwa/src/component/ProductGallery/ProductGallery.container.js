@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * ScandiPWA - Progressive Web App for Magento
  *
@@ -196,6 +197,8 @@ export class ProductGalleryContainer extends PureComponent {
 
     render() {
         const { isImageZoomPopupActive, activeImage } = this.state;
+
+        console.log({ isImageZoomPopupActive });
 
         return (
             <ImageZoomPopup

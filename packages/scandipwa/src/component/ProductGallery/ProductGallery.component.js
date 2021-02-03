@@ -49,7 +49,8 @@ export class ProductGallery extends PureComponent {
                 image: PropTypes.string,
                 isPlaceholder: PropTypes.bool,
                 alt: PropTypes.string,
-                type: PropTypes.string
+                type: PropTypes.string,
+                media_type: PropTypes.string
             })
         ).isRequired,
         productId: PropTypes.number,
@@ -105,8 +106,19 @@ export class ProductGallery extends PureComponent {
     }
 
     handleSliderClick = () => {
-        const { handleImageZoomPopupActiveChange } = this.props;
+        const {
+            handleImageZoomPopupActiveChange,
+            gallery,
+            activeImage
+        } = this.props;
 
+        const { media_type } = gallery[activeImage];
+        // If current slide is video
+        if (media_type === VIDEO_TYPE) {
+            return;
+        }
+
+        // If current slide is not video
         handleImageZoomPopupActiveChange(true);
     };
 

@@ -51,14 +51,22 @@ export class VideoThumbnailContainer extends PureComponent {
                 video_content: {
                     video_title
                 } = {}
-            } = {}, showPopup
+            } = {},
+            showPopup
         } = this.props;
 
         event.preventDefault();
-        showPopup({
-            media,
-            title: video_title
-        });
+
+        // Hide existent popup
+        document.getElementsByClassName('Popup-CloseBtn')[0].click();
+
+        // Show new popup
+        setTimeout(() => {
+            showPopup({
+                media,
+                title: video_title
+            });
+        }, 0);
     }
 
     render() {
